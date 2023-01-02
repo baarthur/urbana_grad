@@ -1,0 +1,357 @@
+---
+title: "Equilíbrio da estrutura intraurbana"
+subtitle: "ECO075-2022 - Economia Urbana"
+author: "Arthur Alvarenga e Rosa Lívia Montenegro"
+institute: "Universidade Federal de Juiz de Fora (UFJF)"
+date: "02/01/2022"
+output:
+  xaringan::moon_reader:
+    css: [default, metropolis, metropolis-fonts]
+    lib_dir: libs
+    nature:
+      highlightStyle: arta
+      highlightLines: true
+      countIncrementalSlides: false
+      ratio: "16:9"
+    includes:
+      after_body: src/insert-logo.html
+---
+
+```{r setup, include=FALSE, echo=FALSE}
+options(
+  htmltools.dir.version  = FALSE,
+  htmltools.preserve.raw = FALSE # needed for windows
+)
+
+knitr::opts_chunk$set(
+  cache = TRUE,
+  echo = FALSE,
+  error = FALSE,
+  include = TRUE,
+  warning = FALSE,
+  message = FALSE,
+  dev = "svg",
+  fig.retina = TRUE,
+  fig.width = 10,
+  fig.height = 5,
+  fig.align = "center"
+)
+
+library(readr)
+library(ggplot2)
+library(icons)
+library(here)
+
+library(sf)
+
+library(tmap)
+library(DT)
+
+#icons::download_fontawesome()
+
+tmap_mode("view")
+tmap_options(check.and.fix = TRUE,
+             basemaps = c("Esri.WorldImagery", "OpenStreetMap", "Esri.WorldGrayCanvas"))
+
+# xaringanExtra::use_logo(
+#   image_url = here("src/ufjf.png")
+# )
+```
+
+# Introdução
+
+## Recapitulando
+
+.pull-left[
+### Dilema do consumidor
+* Acessibilidade: $min$ custos de transporte
+* Espaço: $max$ área da residência
+]
+
+.pull-right[
+### Dilema da firma
+* Fatores: $min$ custo com salários, transporte e terra
+* Aproveitar das economias de **aglomeração**
+  + *Clusters* e subcentros
+]
+
+
+
+---
+# Fatos estilizados
+
+.pull-left[
+### Firmas
+* Comércio e serviços
+  + Contato físico essencial $\rightarrow$ concentração no **CBD**
+  + Contato é dispensável $\rightarrow$ onde for mais barato
+* Indústrias
+  + Aglomerar é bom...
+  + ... mas fundamental estar perto dos nós de transporte
+  + Subcentros especializados: polos automotivos, moveleiros etc.
+]
+
+.pull-right[
+### Indivíduos
+* Muito mais dispersos do que os empregos
+* No entanto, o padrão de densidade prevalece!
+* Gradiente de **densidade** e de **preços** a partir do CBD
+
+### Padrões de deslocamento
+* Empregos dispersos: deslocamentos dispersos
+* Empregos concentrados: forte movimento pendular
+]
+
+----
+> Fatos estilizados são "observações empíricas usadas como **ponto inicial** para a construção de teorias econômicas. Um fato estilizado **deve** ser verdadeiro no geral, mas não necessariamente em todos os casos" (*Oxford Reference*).
+
+
+---
+# Fatos estilizados
+
+```{r bertaud_dens, out.width="45%", dev.args = list(bg = "transparent")}
+knitr::include_graphics("src/images/bertaud_density.png")
+```
+.center[*Fonte: Bertaud (2018)*]
+
+
+
+---
+# Fatos estilizados
+
+.pull-left[
+```{r dens_sao, dev.args = list(bg = "transparent")}
+knitr::include_graphics("src/images/density_sao.png")
+```
+]
+
+.pull-right[
+```{r dens_bhz, dev.args = list(bg = "transparent")}
+knitr::include_graphics("src/images/density_bhz.png")
+```
+]
+
+.center[
+[*Fonte: Jardim (2018)*](https://caosplanejado.com/novo-plano-diretor-de-belo-horizonte-mais-um-passo-para-o-fracasso/)
+]
+
+----
+> O que causa os **desvios** dos fatos estilizados? Há um novo padrão, essas cidades são exceções ou não podemos generalizar o equilíbrio espacial intraurbano?
+
+
+---
+# Equilíbrio intraurbano ao longo do tempo
+
+.pull-left[
+## Paris, 1578
+![](src/images/paris_1578.jpg)
+*Fonte: https://www.smith.edu/insight/stories/paris.php*
+]
+
+.pull-right[
+## Île-de-France, hoje
+```{r shp_paris, include=FALSE}
+shp_paris <- sf::st_read(
+  here("data/shp/paris.SHP")
+) %>% 
+  filter(NOM_REG == "ILE-DE-FRANCE")
+```
+
+
+```{r paris_map}
+tm_shape(shp_paris) +
+tm_borders(col = "orange")
+```
+
+]
+
+
+
+---
+# Primórdios
+
+.pull-left[
+### Tração animal
+* Dentro da cidade
+* Transbordo ao porto
+* Deslocamento ao interior (caro e lento!)
+]
+
+.pull-right[
+### Portos
+* Deslocamento ao interior: cidades fluviais e costeiras
+* Exportações
+]
+
+---- 
+
+* O custo de transportar **mercadoria** era uma barreira muito grande, mesmo dentro da cidade
+* Os trabalhadores se deslocavam a pé ou por tração animal
+  + Cidade horizontalmente limitada
+  + Deveriam morar perto das fábricas
+* Resultado: fábricas no **centro** das cidades e zonas portuárias
+
+> *Why the east end of most cities are poorer?* Vídeo do canal Wendover Productions: <br> https://www.youtube.com/watch?v=my9fsBix630&ab_channel=HalfasInteresting
+
+
+
+---
+# A ascenção da cidade monocêntrica
+
+.pull-left[
+### Ferrovia
+* Revolução sem precedntes
+* Mais mercados alcançados
+* Aprofunda economias de algomeração
+* Novo padrão: indústrias *clusterizadas* ao longo dos trilhos
+
+```{r meat_old, out.width="90%", dev.args = list(bg = "transparent")}
+knitr::include_graphics("src/images/meatpacking_old.jpg")
+```
+]
+
+.pull-right[
+<br><br><br>
+```{r meat_new, out.width="90%", dev.args = list(bg = "transparent")}
+knitr::include_graphics("src/images/meatpacking_new.jpg")
+```
+]
+
+
+
+---
+# A ascenção da cidade monocêntrica
+
+### Inovações no transporte urbano
+
+* Limite de uma aglomeração urbana: **uma hora** de deslocamento até o centro
+* Novos modos de transporte permitem **aumentar** o tamanho das cidades e **aprofundar** as econominas de aglomeração
+  + $\downarrow$ custos de transporte $\rightarrow$ $\uparrow$ área viável da cidade $\rightarrow$ especialização, troca de conhecimento, inovações
+  
+.pull-left[
+#### Bonde em Juiz de Fora
+```{r bonde_jf, out.width="80%", dev.args = list(bg = "transparent")}
+knitr::include_graphics("src/images/bonde_jf_2.jpg")
+```
+Fonte: [Maria do Resguardo (2010)](https://www.mariadoresguardo.com.br/2010/01/o-bonde-arquivo-ramon-brandao.html)
+]
+
+.pull-right[
+#### O *Undergroud* de londres
+```{r underground, out.width="80%", dev.args = list(bg = "transparent")}
+knitr::include_graphics("src/images/london_underground.jpg")
+```
+Fonte: [History Today (2013)](https://www.historytoday.com/archive/months-past/first-day-london-tube)
+]
+
+
+
+---
+# A ascenção da cidade monocêntrica
+
+## Inovações na tecnologia de construção
+
+.pull-left[
+### Até início do séc. XIX
+* Madeira era a base
+* Caro e difícil subir mais que **três** andares
+* Piso térreo era o mais valorizado: comodidade
+
+### Pós revolução industrial
+* Pregos barateados
+* Estruturas em aço
+* Elevador (1854): morar alto tem valor (vistas, ar)
+]
+
+.pull-right[
+#### O primeiro arranhacéu: Chicago, EUA (1885)
+```{r skyscraper, out.height="80%", dev.args = list(bg = "transparent")}
+knitr::include_graphics("src/images/skyscraper.jpg")
+```
+]
+
+
+
+---
+# A ascenção da cidade monocêntrica
+## Ferrovia + bonde + elevador = novo equilíbrio espacial
+
+.pull-left[
+* Cidades crescem para cima e para os lados
+* Favorece padrão **monocêntrico**
+  + Comércio e serviços centralizados
+  + Moradias ao longo da rede de transporte *(hub-and-spoke)*
+* Indústrias ainda têm custo alto de transportar mercadoria, mas ficou barato levar os operários até elas: 
+  + Permitiu ocupação ao longo dos trilhos
+]
+
+
+
+---
+# A ascenção da cidade monocêntrica
+## Ferrovia + bonde + elevador = novo equilíbrio espacial
+
+.pull-left[
+#### Centro de Belo Horizonte, ca. 1940-50
+```{r centro_bh, dev.args = list(bg = "transparent")}
+knitr::include_graphics("src/images/bhz_centro.jpg")
+
+```
+]
+
+.pull-right[
+#### Rede de bondes, anos 1940
+```{r bonde_bh, out.width="60%", dev.args = list(bg = "transparent")}
+knitr::include_graphics("src/images/bonde_bh.webp")
+
+```
+]
+
+
+
+# O declínio da cidade moonocêntrica
+
+
+
+
+
+---
+# Dúvidas?
+
+.pull-left[.pull-down[
+
+### Arthur Bazolli Alvarenga
+
+<a href="mailto:arthur.bazolli@estudante.ufjf.br">
+`r icons::fontawesome("paper-plane")` arthur.bazolli@estudante.ufjf.br
+</a>
+
+<a href="https://baarthur.github.io/urbana_grad/">
+`r icons::fontawesome("link")` baarthur.github.io/urbana_grad/
+</a>
+
+<a href="http://twitter.com/baarthur0">
+`r icons::fontawesome("twitter")` @baarthur0
+</a>
+
+<a href="http://github.com/baarthur">
+`r icons::fontawesome("github")` @baarthur
+</a>
+
+<br><br><br>
+
+]]
+
+
+.pull-right[.pull-down[
+
+### Rosa Lívia Gonçalves Montenegro
+
+<a href="mailto:rosa.livia@ufjf.br">
+`r icons::fontawesome("paper-plane")` rosa.livia@ufjf.br
+</a>
+
+<br><br><br>
+
+]]
+
