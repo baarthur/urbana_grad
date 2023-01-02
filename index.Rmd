@@ -237,7 +237,7 @@ Fonte: [Maria do Resguardo (2010)](https://www.mariadoresguardo.com.br/2010/01/o
 ]
 
 .pull-right[
-#### O *Undergroud* de londres
+#### O *Underground* de Londres
 ```{r underground, out.width="80%", dev.args = list(bg = "transparent")}
 knitr::include_graphics("src/images/london_underground.jpg")
 ```
@@ -356,7 +356,7 @@ knitr::include_graphics("src/images/phoenix.jpg")
   + É caro transportar relatórios: atividades operacionais **devem** estar no centro
 * Anos 1980 em diante: informática
   + Várias atividades eliminadas ou feitas virtualmente
-  + Exemplo: *call centers* na índia
+  + Exemplo: *call centers* na Índia
 
 ----
 Se o presencial é indispensável, a tendência é centralizar. Por isso os centros não morreram completamente!
@@ -465,6 +465,41 @@ knitr::include_graphics("src/images/energydensity.png")
 *Fonte: https://twitter.com/UrbanistOrg/status/1499051911495835650*
 
 
+
+---
+# Consequências do espraiamento
+
+## Atlanta *vs.* Barcelona
+
+```{r atlbcn, out.width="40%", dev.args = list(bg = "transparent")}
+knitr::include_graphics("src/images/atlbcn.png")
+```
+*Fonte: Bertaud (2004)*
+
+
+
+---
+# Consequências do espraiamento
+```{r njb, out.width="40%", dev.args = list(bg = "transparent")}
+knitr::include_graphics("src/images/njb.png")
+```
+[Suburbia is Subsidized: here is the math](https://www.youtube.com/watch?v=7Nw6qyyrTeI&ab_channel=NotJustBikes)
+
+
+
+---
+# Para além do livro texto
+
+## Livros
+* Bertaud (2018). Order without design: How markets shape cities
+* Glaeser e Cutler (2021). The survival of the city
+
+## Mídias
+* Podcast Caos Planejado
+* Youtube
+  + City Beautiful, Wendover Productions, Not Just Bikes
+* Twitter
+  + Perfis sobre urbanismo: Marco Chitti, Nolan Gray e outros
 
 
 ---
