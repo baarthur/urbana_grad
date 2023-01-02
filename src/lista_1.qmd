@@ -1,0 +1,175 @@
+---
+title: "Lista II - Economia Urbana"
+author: 
+  - name: "Arthur Bazolli Alvarenga"
+    affiliations: 
+      - "PPGE/UFJF" 
+  - name: "Prof.ª Rosa Lívia Montenegro"
+    affiliation: "PPGE/UFJF"
+highlight-style: pygments
+format: 
+  pdf:
+    documentclass: article
+    papersize: "A4"
+    code-line-numbers: true
+    geometry: 
+      - top = 25mm
+      - bottom = 25mm
+      - left = 25mm
+      - right = 25mm
+    lang: pt-BR
+knitr: 
+  opts_chunk: 
+    include: false
+    warning: false
+    fig-format: retina
+    fig-dpi: 300
+editor: visual
+---
+
+```{r}
+#| label: setup
+#| results: 'hide'
+
+library(sf)
+library(geobr)
+library(dplyr)
+library(ggplot2)
+library(magrittr)
+```
+
+Localização orientada pelo custo de transporte
+
+-   Estrutura unidimensional
+
+    -   Firma tem P e Q fixos de antemão
+    -   Peso-perdedor: fica no insumo; peso-ganhador: fica no produto
+    -   Depende das massas, custos de transporte, custos terminais e distância
+    -   Custos lineares ou com economias de escala: sol de canto. Custo cresce cada vez mais com distância: sol intermediária. Coeteris paribus, custos de terminal: sol de canto.
+
+-   Localização mediana
+
+    -   Demanda distribuída no espaço
+    -   P e Q fixos
+    -   Vai escolher a localização com 50% dos clientes pra um lado e 50% pra outro, independentemente da distância
+    -   Custo de transporte homogêneo
+
+-   Transbordo
+
+    -   Aproximação da mediana
+    -   Depende se peso-perdedor ou peso-ganhador: onde vai valer a pena?
+    -   Bidimensional: Weber
+
+Hierarquia urbana
+
+-   Lösch
+-   Christaller
+
+# Questão 1
+
+Uma firma têxtil deseja instalar uma nova fábrica. Ela está em concorrência perfeita ---logo, toma os preços e quantidade dados pelo mercado.
+
+## a)
+
+De acordo com o modelo de estrutura **unidimensional** (Hotelling) e as informações abaixo, defina a localização ideal da fábrica. Apresente seus cálculos.
+
+Para atender a uma demanda de 2 mil quilos de camisetas, a empresa arcará com R\$ 15 mil em despesas gerais e administrativas e precisará de 2,5 mil quilos de tecido (as sobras são perdidas), a um custo de R\$ 50 por quilo. Ou seja: o custo inicial de produção é de $15000 + 2500 \cdot 50 = 140000$, ou R\$ 70/kg de camiseta.
+
+A empresa compra os seus tecidos em Juiz de Fora e atenderá ao mercado de Belo Horizonte, a cerca de 250km de distância.
+
+-   Custo de transporte do tecido: $t_1 = 1/5 \cdot [1 + d_{1f} + d_{1f}^2]$, em que $d_{1f}$ é a distância do insumo até a fábrica.
+-   Custo de distribuição da camiseta pronta: $t_2 = 1/2(1+d_{f2})$, em que $d_{f2}$ é a distância da fábrica até o cliente.
+
+## b)
+
+Explique intuitivamente o resultado encontrado, à luz da teoria abordada. Dica: o processo é peso-ganhador, peso-perdedor ou neutro?
+
+# Questão 2
+
+A partir da teoria de Weber, podemos expandir a análise do problema da firma ao analisar, além do custo de transporte, o custo com mão de obra. Pensando nisso, responda às questões a seguir.
+
+## a) 
+
+Suponha que no exemplo anterior a firma têxtil tem duas possibilidades: instalar a fábrica em Juiz de Fora, a 250km do mercado, ou em Montes Claros, a 420km. Para facilitar, suponha que ambas apresentam um mesmo custo de transporte, linear à distância do mercado (como $t = 1/2 d$).
+
+Se os salários são diferentes em ambas as regiões, sob quais condições seria vantajoso para a empresa se instalar em Montes Claros? Não é necessário fazer cálculos, apresente uma resposta qualitativa com base na teoria.
+
+```{r}
+#| label: mapa
+#| echo: true
+
+mg <- read_state(code_state = "MG")
+
+cidades <- read_municipality(code_muni = 3106200)
+
+cidades <- read_municipality(code_muni = 3136702) %>% 
+  rbind(cidades)
+
+cidades <- read_municipality(code_muni = 3143302) %>% 
+  rbind(cidades)
+
+cidades_l <- cidades %>%
+  rbind(cidades[3,]) %>% 
+  cbind(rota = c(1, 2, 1, 2)) %>% 
+  st_centroid() %>% 
+  group_by(rota) %>% 
+  summarise() %>% 
+  st_cast("LINESTRING")
+
+ggplot() +
+  geom_sf(data = mg, fill = "white") +
+  geom_sf(data = cidades, fill = "lightblue", color = NA) +
+  geom_sf_text(data = cidades[1,],
+               aes(label = name_muni),
+               #family = "Prata",
+               #color = "grey30",
+               nudge_x = -1.25,
+               size = 3
+               ) +
+  geom_sf_text(data = cidades[2,],
+               aes(label = name_muni),
+               #family = "Prata",
+               #color = "grey30",
+               nudge_x = -1.125,
+               #nudge_y = -0.3,
+               size = 3
+  ) +
+  geom_sf_text(data = cidades[3,],
+               aes(label = name_muni),
+               #family = "Prata",
+               #color = "grey30",
+               nudge_x = -1.125,
+               #nudge_y = -0.3,
+               size = 3
+  ) +
+  geom_sf(data = cidades_l) +
+  geom_sf_text(data = cidades_l[1,] %>% st_centroid,
+               aes(label = "420 km"),
+               #family = "Prata",
+               #color = "grey30",
+               nudge_x = -0.75,
+               #nudge_y = -0.3,
+               size = 3
+  ) +
+  geom_sf_text(data = cidades_l[2,] %>% st_centroid,
+               aes(label = "250 km"),
+               #family = "Prata",
+               #color = "grey30",
+               nudge_x = -0.75,
+               #nudge_y = -0.3,
+               size = 3
+  ) +
+  theme_bw()
+```
+
+## b)  
+
+### b.1)
+
+Agora, suponha que os salários são iguais em Juiz de Fora e em Montes Claros, assim como os custos relativos de transporte. Nesse cenário, qual localização é mais favorável para instalar a fábrica e atender ao mesmo mercado?
+
+### b.2)
+
+Além disso, imagine que melhoramentos feitos na Ferrovia Centro-Atlântica, que passa por Belo Horizonte e Montes Claros, reduzam o custo de transporte entre essas duas cidades. A decisão da empresa deve mudar? Explique.
+
+# Questão 3
