@@ -295,22 +295,174 @@ knitr::include_graphics("src/images/skyscraper.jpg")
 #### Centro de Belo Horizonte, ca. 1940-50
 ```{r centro_bh, dev.args = list(bg = "transparent")}
 knitr::include_graphics("src/images/bhz_centro.jpg")
-
 ```
 ]
 
 .pull-right[
-#### Rede de bondes, anos 1940
+#### Rede de bondes, anos 1960
 ```{r bonde_bh, out.width="60%", dev.args = list(bg = "transparent")}
 knitr::include_graphics("src/images/bonde_bh.webp")
-
 ```
 ]
 
 
 
-# O declínio da cidade moonocêntrica
+---
+# O declínio da cidade monocêntrica
 
+## Caminhões
+* Reduziram custo de transporte
+* Eliminaram necessidade de estar perto da ferrovia ou do cliente
+* Ficou competitivo em relação ao trem e ao navio
+
+### Decisão locacional: antes *vs.* depois do caminhão
+```{r caminhao, dev.args = list(bg = "transparent")}
+knitr::include_graphics("src/images/caminhao.png")
+```
+Fonte: O'Sullivan (2011)
+
+
+
+---
+# O declínio da cidade monocêntrica
+
+.pull-left[
+## Carros
+* Carro: nova revolução no transporte de pessoas
+  + Deslocamentos fora dos eixos de trilhos
+  + Mais opções locacionais
+]
+  
+.pull-right[
+## Rodovias e o rodoviariarismo
+* Pós-guerra: rodovias e viadutos
+* Prioridade ao transporte individual
+* Zoneamento 
+]
+
+```{r phoenix, out.width="40%", dev.args = list(bg = "transparent")}
+knitr::include_graphics("src/images/phoenix.jpg")
+```
+
+
+
+---
+# O declínio da cidade monocêntrica
+
+## Setor terciário
+
+* Até anos 1970: contato era indispensável
+  + Não tinha excel, não tinha email!
+  + É caro transportar relatórios: atividades operacionais **devem** estar no centro
+* Anos 1980 em diante: informática
+  + Várias atividades eliminadas ou feitas virtualmente
+  + Exemplo: *call centers* na índia
+
+----
+Se o presencial é indispensável, a tendência é centralizar. Por isso os centros não morreram completamente!
+
+> *"Para várias profissões, até para trabalhos altamente intelectuais, o trabalho presencial aumenta a **produtividade**. Interações **não planejadas** nos corredores e em espaços comuns costumam ser chave para o progresso. Tão importante quanto isso, o trabalho remoto é raramente tão agradável quanto estar na mesma sala"* <br> Glaeser e Cutler (2021).
+
+
+
+---
+# O declínio da cidade monocêntrica
+
+## Outros fatores
+
+* Organização industrial
+  + Plantas horizontais requerem espaço
+  + Terra mais barata no subúrbio
+  + Custo de transporte não é mais uma restrição tão forte
+* Aeroportos
+  + Produtos de alto valor agregado
+  + Novos *clusters* próximos aos aeroportos
+  + Aerotrópole: Amsterdam, Panamá, Belo Horizonte (projeto)
+
+
+
+---
+# Causas do espraiamento
+
+### Terra é bem normal
+
+$\partial x / \partial m > 0$
+
+$$
+\begin{cases}
+\text{Aumento da renda} \rightarrow \text{demanda por lotes maiores} \\
+\text{Carros} \rightarrow \downarrow \text{custo de deslocar } \rightarrow \text{fuga aos subúrbios}
+\end{cases}
+$$
+
+### Deslocamento do emprego
+
+Efeito retroalimentador: empresas se afastam do centro $\leftrightarrow$ trabalhadores se mudam
+
+  
+
+---
+# Causas do espraiamento
+
+## Estados Unidos
+
+* Externalidades do automóvel **não** são internalizadas
+  + Subsídios ao combustível
+  + Investimento massivo em infraestrutura para o automóvel
+  + Pouca ou nenhuma taxação da poluição
+  + Ausência de pedágios urbanos/tarifas de congestionamento
+* Financiamento de imóveis favorece residências unifamiliares
+* Zonaeamento: *red lining*, briga de interesses
+* Baixa prioridade para transporte coletivo
+  + Pouco financiamento
+  + Ciclo vicioso: baixa densidade o torna pouco eficiente
+  
+> *"A construção da I-95 em Miami exigiu a relocação forçada de mais de 12 mil residentes, sendo quase 100% deles negros. Usando desapropriações, o governo tomou construções no coração da comunidade negra de Miami em Overtown, oferecendo contrapartidas bem abaixo do valor de mercado para os proprietários e nada para os inquilinos"*. <br> Segregation by Design, vídeo: https://twitter.com/SegByDesign/status/1592179874139344896
+
+
+
+---
+# Causas do espraiamento
+
+### Diferenças culturais
+
+* EUA: preferência por casas em lotes grandes
+  + Favorece espraiamento
+* Leste asiático: preferência por centralidade
+  + Favorece adensamento
+
+
+
+---
+# Causas do espraiamento
+
+## NIMBY *vs.* YIMBY
+
+.pull-left[
+#### NIMBY: **Not** in my backyard
+
+* Foco na externalidade negativa do adensamento
+* Zoneamento unifamiliar
+* Usos separados
+]
+
+
+.pull-right[
+#### YIMBY: **Yes** in my backyard
+* Foco na externalidade positiva do adensamento
+* Uso misto
+* Mais investimento público em transporte coletivo
+]
+
+
+
+---
+# Consequências do espraiamento
+
+```{r density, out.width="40%", dev.args = list(bg = "transparent")}
+knitr::include_graphics("src/images/energydensity.png")
+```
+*Fonte: https://twitter.com/UrbanistOrg/status/1499051911495835650*
 
 
 
