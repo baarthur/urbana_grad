@@ -1,0 +1,135 @@
+---
+title: "Equilíbrio da estrutura intraurbana"
+subtitle: "Aula 12 - ECO075"
+author: "Arthur Bazolli Alvarenga e Prof.ª Rosa Lívia Montenegro"
+date: "Janeiro de 2023"
+
+geometry:
+  - top = 25mm
+  - bottom = 25mm
+  - left = 25mm
+  - right = 25mm
+lang: pt-BR
+indent: true
+papersize: "A4"
+documentcalss: article
+pagestyle: headings
+fontfamily: mathptmx
+fontsize: 12pt
+linestretch: 1
+
+bibliography: yaml/Urban Economics.json
+
+format:
+  pdf: 
+    toc: false
+    csl: yaml/ipea.csl
+    highlight: pygments
+    pandoc_args: 
+      - '--lua-filter=C:/Users/arthu/OneDrive/Documentos/R/Projects/urbana_grad/src/yaml/scholarly-metadata.lua'
+      - '--lua-filter=C:/Users/arthu/OneDrive/Documentos/R/Projects/urbana_grad/src/yaml/author-info-blocks.lua'
+    includes:
+      in_header: yaml/wrap-code.tex
+---
+
+```{r}
+library(knitr)
+library(here)
+
+opts_chunk$set(
+  cache = FALSE,
+  echo = FALSE,
+  error = FALSE,
+  include = TRUE,
+  warning = FALSE,
+  message = FALSE,
+  dev = "svg",
+  fig.retina = TRUE,
+  fig.width = 10,
+  fig.height = 5,
+  fig.align = "center"
+)
+```
+
+
+# Introdução
+
+Esta nota de aula é baseada principalmente no capítulo 7 de @osullivan2012 e no capítulo 2 de @brueckner2011. Leituras adicionais recomendadas, para além das mencionadas ao longo da nota de aula, são @bertaud2018 e @glaeser2021.
+
+Agora que já estudamos os modelos canônicos da economia urbana, podemos compreender melhor como as forças econômicas atuam dentro das cidades. O propósito desta aula é mostrar **como a estrutura dos centros urbanos evoluiu ao longo do tempo**, frente às mudanças observadas nas tecnologias de transporte, de construção e de informação e nas preferências dos agentes econômicos. Mas, antes, vamos recapitular as premissas básicas dos modelos que desenvolvemos e os fatos estilizados da economia urbana.
+
+
+
+## Premissas básicas
+
+Os modelos urbanos são construídos em cima do arcabouço da microeconômico, separando os agentes econômicos entre indivíduos (ou famílias)^[no inglês, usa-se o termo *households*, comumente traduzido como famílias] e firmas. 
+
+O **dilema dos indivíduos** é entre consumir o **máximo de espaço** residencial possível e ter o **menor custo de transporte** possível. No geral, o custo de transporte é modelado como função linear da distância ao trabalho, mas pode ser entendido como um **custo de oportunidade** do tempo e dinheiro perdidos no deslocamento casa-trabalho. 
+
+Já as firmas desejam maximizar o lucro gastando o mínimo possível com seus fatores, como salários, **custos de transporte** e terra. Um detalhe fundamental é que as **economias de aglomeração**, quando presentes, podem aumentar os lucros da empresa. Assim, se uma localização promove essas economias, a empresa pode preferir arcar com custos maiores de aluguel para aproveitá-las.
+
+Economias de aglomeração ocorrem quando a concentração de agentes econômicos próximos aumenta o retorno econômico. Um exemplo é quando indústrias de um mesmo setor se instalam em uma mesma cidade e, tendo fornecedores similares, viabilizam a instalação de uma cadeia de suprimentos na vizinhança que reduz os custos de aquisição dos insumos. São os **arranjos produtivos locais** (APLs), como o da mineração no quadrilátero ferrífero de Minas Gerais ou o polo automobilístico do ABC Paulista. 
+
+Se enxergarmos as cidades como mercados de trabalho, fica fácil identificar outras duas fontes de economias de aglomeração. Um deles está relacionado à **inovação**: a alta concentração de pessoas em uma região tende a aumentar as interações e a criar uma rede de troca de informações que impulsiona novas ideias. Por exemplo, ex-funcionários de uma empresa estabelecida podem transferir o conhecimento adquirido para uma nova empresa, como ocorreu e ainda ocorre no Vale do Silício.
+
+> *"Por exemplo, os primeiros usuários de planilhas eletrônicas em microcomputadores (no início dos anos 1980) eram principalmente contadores e analistas financeiros. O uso de planilhas logo ficou comum em todos os setores da economia, mas o* spillover *aconteceu primeiro em grandes cidades, partindo do MIT em Cambridge, Massachusetts, onde foi originalmente inventado. Spillovers de conhecimento são responsáveis por economias de aglomeração (ou seja, economias que aumentam a produtividade devido à rápida disseminação de novas ideias porque um grande número de trabalhadores está em contato próximo)"*. @bertaud2018[p. 21, tradução nossa]
+
+Por fim, o terceiro fator diz respeito à especialização: a oferta de trabalho das grandes cidades permite obter maiores graus de especialização, pois é nelas que a mão de obra especializada encontra demanda por esse tipo de trabalho. É uma situação do tipo "ovo ou a galinha" (ou *endógena*, como dizemos na economia): empresas atraem trabalhadores capacitados para a cidade, mas cidades com trabalhadores especializados também atraem empresas que demandam trabalhos sofisticados. Isso dá origem a um ciclo **retroalimentador** que gera altos níveis de especialização da mão de obra e, assim, a economia local pode atingir níveis maiores de produção.
+
+
+
+## Fatos estilizados
+
+De acordo com o dicionário *online* Oxford Reference, fatos estilizados são "observações empíricas usadas como ponto inicial para a construção de teorias econômicas. Um fato estilizado deve ser verdadeiro no geral, mas não necessariamente em todos os casos". Em outras palavras, fazemos generalizações a partir da realidade para construir as teorias econômicas, mas devemos lembrar que elas são uma percepção geral e não uma verdade absoluta ou imutável. Como veremos a seguir, as dinâmicas urbanas mudam ao longo do tempo, mas alguns princípios válidos parecem se sustentar ao teste do tempo.^[Fonte: https://www.oxfordreference.com/display/10.1093/oi/authority.20110810105949304;jsessionid=1E3AE33B3DE49AAD939B92F3FB7F5AE8]
+
+
+### Comportamento das firmas
+
+No setor terciário, quando o contato físico é essencial ---como o comércio, profissionais da saúde,  advogados--- as firmas tendem a se concentrar no CBD da cidade. Já se o contato não faz tanta diferença, como em *call centers* e outras atividades operacionais, a empresa otimizadora tende a procurar locais mais baratos, como outros subcentros ou mesmo em outros países. Algumas atividades dão origem a subcentros especializados fora do CBD: exemplos em Juiz de Fora são a Av. Deusdedith Salgado (concessionárias) e a Rua Henrique Vaz (ferro velho e peças automotivas).
+
+Já para as indústrias, as economias de aglomeração também são importantes, mas a tendência não é se concentrar no CBD. Em vez disso, a tendência é uma concentração nos principais **nós de transporte**, já que os produtos são distribuídos para diversos locais, dando origem a outros subcentros.
+
+> ***Os subcentros matam o centro?*** Não. Eles são complementares, e atraem diferentes atividades econômicas de acordo com a localização otimizadora para cada uma.
+
+
+### Comportamento dos indivíduos
+
+Ao contrário das firmas, os indivíduos estão mais dispersos. No entanto, observamos que muitas famílias preferem trocar espaço e tranquilidade pela comodidade de morar perto do centro. Se observarmos os dados de densidade populacional e de preços dos imóveis em várias cidades do mundo, verificamos um **gradiente** de preços e de **densidade** populacional ao redor dos CBDs, mesmo que a tendência nos últimos 40 ou 50 anos tenha sido de espraiamento. 
+
+@bertaud2003 analisaram o perfil da área construída de cerca de 50 cidades e identificaram o decaimento exponencial de densidade a partir do centro proposto pela teoria. Para as 12 cidades exemplificadas abaixo, o grau de ajuste ($R^2$) de uma função do tipo $densidade = e^{\beta dist\_cbd}$ ficou acima de 0,80 para todas as cidades, com exceção do Rio de Janeiro. De fato, como notam os autores, a topografia do Rio ---morros, florestas, baía de Guanabara--- é uma das razões por trás do desvio ao fato estilizado.
+
+```{r}
+knitr::include_graphics(here("src/images/bertaud_density.png"))
+```
+
+
+
+
+# A ascenção da cidade monocêntrica
+
+Nos **primórdios**, as cidades já seguiam um padrão monocêntrico, geralmente ao redor de construções religiosas, governamentais ou militares. Na Europa medieval, era comum que a urbe fosse limitada por muros, para protegê-la de invasões, e a vida fora dos muros se restringia a pequenas vilas e atividade agrícola. 
+
+Os modos de transporte se restringiam às **embarcações** ---para exportar mercadoria e enviar ao interior por rios---, e à **tração animal**, para deslocamento dentro da cidade, transbordo ao porto e atingir o interior onde não era possível por via fluvial (mais lento e custoso). Com isso, mesmo dentro da cidade, o **custo de transportar** mercadoria era uma barreira muito grande que regia a decisão locacional das firmas. Isso também se aplicava aos **indivíduos**, restritos sobretudo ao deslocamento **a pé e**, quando muito, força animal. 
+
+Assim, a atividade **manufatureira** era restrita ao **centro** das cidades e zonas portuárias, enquanto os trabalhadores deveriam morar perto (para padrões atuais) de seus trabalhos. 
+
+A partir da Revolução Industrial, surgiram tecnologias que permitiram às cidades crescer tanto para os lados quanto para cima.
+
+## Inovações no transporte urbano 
+
+
+# O declínio da cidade monocêntrica
+
+
+
+
+# Espraiamento: causas e consequências
+
+## Causas do espraiamento
+
+
+
+## Consequências do espraiamento
+
+
+# Referências

@@ -57,3 +57,4 @@ vignettes/*.pdf
 # Folders
 output/.old
 src/.old
+/.quarto/

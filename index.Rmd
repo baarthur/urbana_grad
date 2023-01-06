@@ -196,7 +196,7 @@ tm_borders(col = "orange")
 
 
 ---
-# A ascenção da cidade monocêntrica
+# A ascensão da cidade monocêntrica
 
 .pull-left[
 ### Ferrovia
@@ -220,7 +220,7 @@ knitr::include_graphics("src/images/meatpacking_new.jpg")
 
 
 ---
-# A ascenção da cidade monocêntrica
+# A ascensão da cidade monocêntrica
 
 ### Inovações no transporte urbano
 
@@ -247,7 +247,7 @@ Fonte: [History Today (2013)](https://www.historytoday.com/archive/months-past/f
 
 
 ---
-# A ascenção da cidade monocêntrica
+# A ascensão da cidade monocêntrica
 
 ## Inovações na tecnologia de construção
 
@@ -273,7 +273,7 @@ knitr::include_graphics("src/images/skyscraper.jpg")
 
 
 ---
-# A ascenção da cidade monocêntrica
+# A ascensão da cidade monocêntrica
 ## Ferrovia + bonde + elevador = novo equilíbrio espacial
 
 .pull-left[
@@ -288,7 +288,7 @@ knitr::include_graphics("src/images/skyscraper.jpg")
 
 
 ---
-# A ascenção da cidade monocêntrica
+# A ascensão da cidade monocêntrica
 ## Ferrovia + bonde + elevador = novo equilíbrio espacial
 
 .pull-left[
@@ -496,10 +496,11 @@ knitr::include_graphics("src/images/njb.png")
 
 ## Mídias
 * Podcast Caos Planejado
+  + Alguns episódios: #29 Economia Urbana, #37 Acessibilidade à moradia, #69 A evolução do penamento urbano no Brasil 
 * Youtube
-  + City Beautiful, Wendover Productions, Not Just Bikes
+  + São Paulo Nas Alturas, City Beautiful, Wendover Productions, Not Just Bikes
 * Twitter
-  + Perfis sobre urbanismo: Marco Chitti, Nolan Gray e outros
+  + Perfis sobre urbanismo: @UrbanDemog, @caosplanejado, @rauljustelores, @ChittiMarco, @mnolangray, @SegByDesign e outros 
 
 
 ---
