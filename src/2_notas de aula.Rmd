@@ -1,6 +1,6 @@
 ---
 title: "Equilíbrio da estrutura intraurbana"
-subtitle: "Aula 12 - ECO075"
+subtitle: "Aula 10 (semana 12) - ECO075"
 author: "Arthur Bazolli Alvarenga e Prof.ª Rosa Lívia Montenegro"
 date: "Janeiro de 2023"
 
@@ -25,14 +25,18 @@ format:
     toc: false
     csl: yaml/ipea.csl
     highlight: pygments
+    fig_caption: yes
     pandoc_args: 
       - '--lua-filter=C:/Users/arthu/OneDrive/Documentos/R/Projects/urbana_grad/src/yaml/scholarly-metadata.lua'
       - '--lua-filter=C:/Users/arthu/OneDrive/Documentos/R/Projects/urbana_grad/src/yaml/author-info-blocks.lua'
     includes:
       in_header: yaml/wrap-code.tex
+      
+nocite: | 
+  @brueckner2011
 ---
 
-```{r}
+```{r, include=FALSE}
 library(knitr)
 library(here)
 
@@ -54,7 +58,7 @@ opts_chunk$set(
 
 # Introdução
 
-Esta nota de aula é baseada principalmente no capítulo 7 de @osullivan2012 e no capítulo 2 de @brueckner2011. Leituras adicionais recomendadas, para além das mencionadas ao longo da nota de aula, são @bertaud2018 e @glaeser2021.
+Esta nota de aula é baseada principalmente no capítulo 7 de @osullivan2012, no capítulo 2 de @brueckner2011 e nos capítulos 2 a 4 de @bertaud2018.
 
 Agora que já estudamos os modelos canônicos da economia urbana, podemos compreender melhor como as forças econômicas atuam dentro das cidades. O propósito desta aula é mostrar **como a estrutura dos centros urbanos evoluiu ao longo do tempo**, frente às mudanças observadas nas tecnologias de transporte, de construção e de informação e nas preferências dos agentes econômicos. Mas, antes, vamos recapitular as premissas básicas dos modelos que desenvolvemos e os fatos estilizados da economia urbana.
 
@@ -98,14 +102,24 @@ Ao contrário das firmas, os indivíduos estão mais dispersos. No entanto, obse
 
 @bertaud2003 analisaram o perfil da área construída de cerca de 50 cidades e identificaram o decaimento exponencial de densidade a partir do centro proposto pela teoria. Para as 12 cidades exemplificadas abaixo, o grau de ajuste ($R^2$) de uma função do tipo $densidade = e^{\beta dist\_cbd}$ ficou acima de 0,80 para todas as cidades, com exceção do Rio de Janeiro. De fato, como notam os autores, a topografia do Rio ---morros, florestas, baía de Guanabara--- é uma das razões por trás do desvio ao fato estilizado.
 
-```{r}
-knitr::include_graphics(here("src/images/bertaud_density.png"))
+```{r density, fig.cap="\\label{fig:density} densidade ao redor do mundo. Fonte: Bertaud (2018)"}
+include_graphics(here("src/images/bertaud_density.png"))
 ```
 
 
+### Padrões de deslocamento
+
+O terceiro fato estilizado diz respeito à locomoção de pessoas nas cidades. Os principais deslocamentos são do tipo casa-trabalho (ou comutação, do inglês *commuting*), ainda que não sejam os únicos. Em cidades **monocêntricas**, os deslocamentos tendem a ser **radiais** e fortemente **pendulares**, ou seja: concentram-se na direção bairro-centro no pico da manhã e na direção oposta no pico da tarde. Por outro lado, cidades mais **policêntricas** têm padrões mais **diversos**. As cidades americanas, por exemplo, são bastante espraiadas e, na média, 44% dos deslocamentos se dão entre os subúrbios e não em direção ao CBD [@osullivan2012]. A imagem abaixo ilustra os padrões de deslocamento para diferentes tipologias de estrutura urbana:
+```{r commuting, out.width="80%", fig.cap="\\label{fig:commuting} Padrões de deslocamento. Fonte: Bertaud (2018)"}
+include_graphics(here("src/images/bertaud_commuting.png"))
+```
+
+Entender os padrões de deslocamento é importante não só para planejar a rede de transportes da cidade, como também para investigar o **acesso a oportunidades**; ou seja, o grau de facilidade (ou dificuldade) que os cidadãos encontram para encontrarem trabalho e chegar a escolas, hospitais e demais equipamentos.
 
 
-# A ascenção da cidade monocêntrica
+
+
+# A ascensão da cidade monocêntrica
 
 Nos **primórdios**, as cidades já seguiam um padrão monocêntrico, geralmente ao redor de construções religiosas, governamentais ou militares. Na Europa medieval, era comum que a urbe fosse limitada por muros, para protegê-la de invasões, e a vida fora dos muros se restringia a pequenas vilas e atividade agrícola. 
 
@@ -113,19 +127,76 @@ Os modos de transporte se restringiam às **embarcações** ---para exportar mer
 
 Assim, a atividade **manufatureira** era restrita ao **centro** das cidades e zonas portuárias, enquanto os trabalhadores deveriam morar perto (para padrões atuais) de seus trabalhos. 
 
-A partir da Revolução Industrial, surgiram tecnologias que permitiram às cidades crescer tanto para os lados quanto para cima.
+A partir da Revolução Industrial, surgiram tecnologias que permitiram às cidades crescer tanto para os lados quanto para cima. Uma das principais foi a **locomotiva a vapor**: o desenvolvimento das ferrovias permitiu que as indústrias alcançassem mais mercados, mas também, permitiu o surgimento de um novo **padrão espacial**: *clusters* industriais perto das estações. A localização no centro continuava atrativa para as indústrias, mas não era indispensável como antes dos trens.
+
+
 
 ## Inovações no transporte urbano 
 
+Para entender a importância dos meios de transporte no equilíbrio espacial urbano, é importante ter em mente que o **tamanho** de uma cidade costuma ser limitado pela distância que é possível percorrer em uma hora a partir do CBD. É claro que há pessoas que gastam mais de uma hora para chegar ao trabalho, mas a maior parte da mancha urbana se concentra dentro desse limite. Assim, quando as únicas possibilidades disponíveis eram andar a pé ou por tração animal, a **área viável** de uma cidade era bem menor do que hoje, quando temos diversos meios de transporte disponíveis.
+
+Uma dessas inovações foi o **bonde** elétrico (e seu antecessor, o ômnibus, puxado por cavalos). Ao aumentar a acessibilidade de locais mais afastados ao centro, o bonde reforçou o padrão monocêntrico: como as linhas levavam a periferia às zonas centrais, o comércio e a indústria se desenvolveram ao longo desses corredores. Ainda no século XIX, surgiu o trem metropolitano (**metrô**): criado em Londres como uma extensão subterrânea para a rede ferroviária atingir o centro da cidade, o modelo foi replicado ao redor do mundo e é, sem dúvidas, um importante promotor de acessibilidade. 
+
+A imagem abaixo mostra a rede de bondes de Belo Horizonte, por volta dos anos 1950: é possível notar um padrão, irradiando a partir da Praça 7, o CBD da cidade.
+```{r bonde, out.height="40%", fig.cap="\\label{fig:bonde} Rede de bondes em Belo Horizonte, ca. 1950"}
+include_graphics(here("src/images/bonde_bh.png"))
+```
+
+> Curiosidade: Diversas manifestações culturais imortalizaram os meios de transporte. Uma delas é o samba "O Bonde de São Januário", de 1940, que retrata o trajeto de operários que trabalhavam no bairro de São Cristóvão (próximo ao centro do Rio de Janeiro).
+
+
+### Inovações nas técnicas de construção
+
+Outra restrição importante para a estrutura urbana é a **tecnologia construtiva** disponível. Até o início do século XIX, raras construções passavam do limite de **três andares**, pois as estruturas baseadas em madeira e barro não permitiam ir muito além. Com isso, mesmo que houvesse forças econômicas na direção do adensamento, este encontrava uma **barreira técnica**. 
+
+Com o barateamento de **pregos** e o surgimento de estruturas em **metal**, foi possível atingir novos patamares. Esse processo foi impulsionado pela invenção do **elevador**, em 1853, que tornou os pisos superiores atrativos ---afinal, quando só haviam escadas, estes tinham acessibilidade inferior. O elevador chegou a inverter a lógica de **valorização fundiária**: se antes o térreo era mais valorizado, com o elevador, os pisos superiores foram apreciados, pelas suas amenidades (vista e circulação de ar).
+
+Assim, o desenvolvimento dos métodos construtivos permitiu um **maior adensamento** das cidades onde havia vantagens locacionais, tanto residenciais quanto comerciais. Isso reforça o padrão **monocêntrico**; graficamente, torna o gradiente de densidade **mais inclinado** (como Paris e Pequim, na Figura 1, em contraste com Atlanta e Los Angeles).
+
+
+
 
 # O declínio da cidade monocêntrica
+
+Até aqui, vimos que no princípio as indústrias se localizavam coladas ao centro e aos portos pela dificuldade de locomoção. Posteriormente, as ferrovias permitiram novos padrões de organização da indústria no espaço, mas ainda de forma limitada: afinal, da fábrica para as estações, ainda era necessário transportar as mercadorias por carroças. Esse cenário mudou com o surgimento do **caminhão**, nos anos 1900, ao facilitar enormemente o deslocamento de mercadorias, por ser mais rápido e ter maior volume. 
+
+Eventualmente, o caminhão se tornou **competitivo** frente aos trens e embarcações para o transporte interurbano, com um impacto forte no tecido urbano por dois motivos. Primeiro, como não estavam mais restritas à vizinhança do centro, das estações ferroviárias e dos portos, a localização ótima para várias firmas passou a ser na **periferia**, onde a terra era mais barata, mas ainda ao alcance da oferta de trabalho.
+
+A teoria nos ajuda a entender a decisão locacional da firma. Os painéis da figura abaixo ilustram um modelo similar ao que vimos na Aula 6, em que os **custos de frete** aumentam à medida que a empresa se distancia do porto (e se aproxima da residência dos trabalhadores) e o custo com **mão de obra** cresce na direção **contrária**. 
+```{r caminhao, fig.cap="\\label{fig:caminhao} decisão locacional. Fonte: O'Sullivan (2012)"}
+knitr::include_graphics(here("src/images/caminhao_2.png"))
+```
+**Antes** da popularização do caminhão (painel A), o custo de **frete era proibitivo** o bastante que a decisão racional (minimizadora de custos) fosse instalar a planta junto ao porto. **Após o caminhão** (painel B), o custo de frete cai drasticamente. Note que o custo de trabalho é o mesmo; todavia, como a curva do custo de frete não cruza com a outra, a decisão racional é instalar a unidade junto à fonte de mão de obra. Na prática, a decisão ótima varia, mas o gráfico ilustra bem o processo de **desconcentração das indústrias** que se segiu.
+
+
+
+### Carros, rodovias e o rodoviarismo
+
+Se na indústria o caminhão proporcionou uma revolução na distribuição espacial, os carros lideraram o mesmo processo no lado das residências. A popularização do automóvel representou um ganho de acessibilidade para várias pessoas, na medida em que não se viam mais restritas aos horários do transporte público e aos corredores por onde eles passavam. Uma consequência direta no equilíbrio espacial urbano é que regiões com pouca ou nenhuma oferta de transporte coletivo se tornaram valorizadas. Locais afastados se transformaram em bairros residenciais com pouca ou nenhuma verticalização, consequência direta do **investimento em rodovias** e na indústria automobilístico, sobretudo após a II Guerra Mundial. 
+
+Esse processo foi mais intenso nos Estados Unidos, mas também ocorreu na Europa e na América Latina. Tratava-se de uma **mudança de paradigma** no pensamento urbanístico: não apenas os carros eram vistos com o o meio de transporte do futuro, como as políticas de **urbanização** refletiam um espaço urbano **voltado para o fluxo de automóveis**. Um exemplo claro é Brasília, desenvolvida no auge do pensamento rodoviarista, cidade até hoje marcada pelas longas distâncias e baixa atratividade ao pedestre. 
+
+
+### Economia da informação e outros fatores
+
+Até os anos 1970, o contato físico era indispensável para várias atividades que hoje podem ser feitas de forma remota, automática, ou sequer existem. Relatórios gerenciais, demonstrativos contábeis, cálculos de engenharia eram essencialmente manuais, e a informação, transmitida sobretudo por **papel**. Dada essa natureza, era racional que as firmas alocassem essas **atividades técnicas em áreas centrais**, para que a **comunicação e tomada de decisão fluísse**. No entanto, o fluxo de inovações na informática ---microcomputador, internet, email, planilhas, videoconferência, smartphone--- tornaram o contato físico cada vez menos importante. Várias atividades foram deslocadas para regiões menos nobres ou para o modelo de *home office*; por outro lado, atividades que envolvem **liderança** e informações tácitas, como reuniões de negócios, seguem sendo desempenhadas em **locais centrais**. 
+
+Outros fatores também diminuíram a pressão sobre os centros. Um deles é o surgimento de processos produtivos, como o fordismo e o toyotismo, que aumentaram a preferência por indústrias **horizontais** em vez das plantas multipavimento: como a terra costuma ser mais barata na periferia, foi mais um incentivo para que as indústrias saíssem da região central e se agrupassem em **novas centralidades**. Outro fator foi o desenvolvimento da aviação e de produtos de alto valor que passaram a a ser transportados por via aérea. Assim, nas proximidades dos aeroportos surgiram novos clusters de indústrias e atividades econômicas de suporte.
 
 
 
 
 # Espraiamento: causas e consequências
 
+Como vimos na seção anterior, o desenvolvimento dos meios de transporte incentivOU que as cidades crescessem para os lados, por tornar os deslocamentos mais rápidos. Novas técnicas construtivas resultaram no adensamento, ao possibilitarem que cada vez mais pessoas ocupassem espaços valiosos. Essa combinação de forças **reforçou o caráter monocêntrico** dos centros urbanos. Por sua vez, a ascenção do automóvel, a priorização do transporte individual nas políticas urbanas, a revolução propiciada pela informática e outros fatores diminuíram cada vez mais a pressão sobre as áreas centrais e levaram à **descentralização** do espaço urbano. Ao mesmo tempo, a expansão dos limites urbanos se intensificou. Nesta seção, examinaremos o **espraiamento** ---processo de urbanização de regiões até então rurais ou desocupadas---, fenômeno bastante relacionado ao processo de descentralização do tecido urbano.
+
+> Exemplo de espraiamento: entre os anos 1950 e 1990, os centros urbanos dos Estados Unidos se expandiram em 245%, enquanto a população cresceu em 92% [@osullivan2012]. 
+
+
+
 ## Causas do espraiamento
+
+Em primeiro lugar, analisemos os motores do espraiamento no lado da demanda. De acordo com os modelos de economia urbana, a **terra é um bem normal**; ou seja, sua derivada em relação à renda é maior que zero. Na maioria dos países que passam pelo processo de espraiamento nos últimos 60 anos, a **renda média** familiar se elevou bastante: assim, tudo o mais constante, a escolha maximizadora de diversos consumidores foi consumir **propriedades maiores**. Esse processo de enriquecimento se deu, em diversos países (inclusive no Brasil), ao mesmo tempo em que o desenvolvimento dos automóveis e das rodovias tornaram locais distantes mais atrativos. Pensando nos modelos que
 
 
 
@@ -133,3 +204,4 @@ A partir da Revolução Industrial, surgiram tecnologias que permitiram às cida
 
 
 # Referências
+

@@ -4,6 +4,7 @@ subtitle: "ECO075-2022 - Economia Urbana"
 author: "Arthur Alvarenga e Rosa Lívia Montenegro"
 institute: "Universidade Federal de Juiz de Fora (UFJF)"
 date: "02/01/2022"
+
 output:
   xaringan::moon_reader:
     css: [default, metropolis, metropolis-fonts]
@@ -13,9 +14,11 @@ output:
       highlightLines: true
       countIncrementalSlides: false
       ratio: "16:9"
-    includes:
-      after_body: src/insert-logo.html
+
+includes:
+  after_body: src/insert-logo.html
 ---
+
 
 ```{r setup, include=FALSE, echo=FALSE}
 options(
@@ -37,6 +40,7 @@ knitr::opts_chunk$set(
   fig.align = "center"
 )
 
+library(dplyr)
 library(readr)
 library(ggplot2)
 library(icons)
@@ -58,12 +62,13 @@ tmap_options(check.and.fix = TRUE,
 # )
 ```
 
+
 # Introdução
 
 ## Recapitulando
 
 .pull-left[
-### Dilema do consumidor
+### Dilema do indivíduo
 * Acessibilidade: $min$ custos de transporte
 * Espaço: $max$ área da residência
 ]
@@ -77,7 +82,9 @@ tmap_options(check.and.fix = TRUE,
 
 
 
+
 ---
+
 # Fatos estilizados
 
 .pull-left[
@@ -102,11 +109,16 @@ tmap_options(check.and.fix = TRUE,
 * Empregos concentrados: forte movimento pendular
 ]
 
+
 ----
+
 > Fatos estilizados são "observações empíricas usadas como **ponto inicial** para a construção de teorias econômicas. Um fato estilizado **deve** ser verdadeiro no geral, mas não necessariamente em todos os casos" (*Oxford Reference*).
 
 
+
+
 ---
+
 # Fatos estilizados
 
 ```{r bertaud_dens, out.width="45%", dev.args = list(bg = "transparent")}
@@ -116,7 +128,9 @@ knitr::include_graphics("src/images/bertaud_density.png")
 
 
 
+
 ---
+
 # Fatos estilizados
 
 .pull-left[
@@ -135,11 +149,16 @@ knitr::include_graphics("src/images/density_bhz.png")
 [*Fonte: Jardim (2018)*](https://caosplanejado.com/novo-plano-diretor-de-belo-horizonte-mais-um-passo-para-o-fracasso/)
 ]
 
+
 ----
+
 > O que causa os **desvios** dos fatos estilizados? Há um novo padrão, essas cidades são exceções ou não podemos generalizar o equilíbrio espacial intraurbano?
 
 
+
+
 ---
+
 # Equilíbrio intraurbano ao longo do tempo
 
 .pull-left[
@@ -167,7 +186,9 @@ tm_borders(col = "orange")
 
 
 
+
 ---
+
 # Primórdios
 
 .pull-left[
@@ -183,6 +204,7 @@ tm_borders(col = "orange")
 * Exportações
 ]
 
+
 ---- 
 
 * O custo de transportar **mercadoria** era uma barreira muito grande, mesmo dentro da cidade
@@ -195,7 +217,9 @@ tm_borders(col = "orange")
 
 
 
+
 ---
+
 # A ascensão da cidade monocêntrica
 
 .pull-left[
@@ -219,7 +243,9 @@ knitr::include_graphics("src/images/meatpacking_new.jpg")
 
 
 
+
 ---
+
 # A ascensão da cidade monocêntrica
 
 ### Inovações no transporte urbano
@@ -246,7 +272,9 @@ Fonte: [History Today (2013)](https://www.historytoday.com/archive/months-past/f
 
 
 
+
 ---
+
 # A ascensão da cidade monocêntrica
 
 ## Inovações na tecnologia de construção
@@ -272,7 +300,9 @@ knitr::include_graphics("src/images/skyscraper.jpg")
 
 
 
+
 ---
+
 # A ascensão da cidade monocêntrica
 ## Ferrovia + bonde + elevador = novo equilíbrio espacial
 
@@ -287,7 +317,9 @@ knitr::include_graphics("src/images/skyscraper.jpg")
 
 
 
+
 ---
+
 # A ascensão da cidade monocêntrica
 ## Ferrovia + bonde + elevador = novo equilíbrio espacial
 
@@ -307,7 +339,9 @@ knitr::include_graphics("src/images/bonde_bh.webp")
 
 
 
+
 ---
+
 # O declínio da cidade monocêntrica
 
 ## Caminhões
@@ -323,7 +357,9 @@ Fonte: O'Sullivan (2011)
 
 
 
+
 ---
+
 # O declínio da cidade monocêntrica
 
 .pull-left[
@@ -346,7 +382,9 @@ knitr::include_graphics("src/images/phoenix.jpg")
 
 
 
+
 ---
+
 # O declínio da cidade monocêntrica
 
 ## Setor terciário
@@ -358,14 +396,18 @@ knitr::include_graphics("src/images/phoenix.jpg")
   + Várias atividades eliminadas ou feitas virtualmente
   + Exemplo: *call centers* na Índia
 
+
 ----
+
 Se o presencial é indispensável, a tendência é centralizar. Por isso os centros não morreram completamente!
 
 > *"Para várias profissões, até para trabalhos altamente intelectuais, o trabalho presencial aumenta a **produtividade**. Interações **não planejadas** nos corredores e em espaços comuns costumam ser chave para o progresso. Tão importante quanto isso, o trabalho remoto é raramente tão agradável quanto estar na mesma sala"* <br> Glaeser e Cutler (2021).
 
 
 
+
 ---
+
 # O declínio da cidade monocêntrica
 
 ## Outros fatores
@@ -381,7 +423,9 @@ Se o presencial é indispensável, a tendência é centralizar. Por isso os cent
 
 
 
+
 ---
+
 # Causas do espraiamento
 
 ### Terra é bem normal
@@ -399,9 +443,11 @@ $$
 
 Efeito retroalimentador: empresas se afastam do centro $\leftrightarrow$ trabalhadores se mudam
 
+
   
 
 ---
+
 # Causas do espraiamento
 
 ## Estados Unidos
@@ -421,7 +467,9 @@ Efeito retroalimentador: empresas se afastam do centro $\leftrightarrow$ trabalh
 
 
 
+
 ---
+
 # Causas do espraiamento
 
 ### Diferenças culturais
@@ -433,7 +481,9 @@ Efeito retroalimentador: empresas se afastam do centro $\leftrightarrow$ trabalh
 
 
 
+
 ---
+
 # Causas do espraiamento
 
 ## NIMBY *vs.* YIMBY
@@ -456,7 +506,9 @@ Efeito retroalimentador: empresas se afastam do centro $\leftrightarrow$ trabalh
 
 
 
+
 ---
+
 # Consequências do espraiamento
 
 ```{r density, out.width="40%", dev.args = list(bg = "transparent")}
@@ -466,7 +518,9 @@ knitr::include_graphics("src/images/energydensity.png")
 
 
 
+
 ---
+
 # Consequências do espraiamento
 
 ## Atlanta *vs.* Barcelona
@@ -478,7 +532,9 @@ knitr::include_graphics("src/images/atlbcn.png")
 
 
 
+
 ---
+
 # Consequências do espraiamento
 ```{r njb, out.width="40%", dev.args = list(bg = "transparent")}
 knitr::include_graphics("src/images/njb.png")
@@ -487,10 +543,13 @@ knitr::include_graphics("src/images/njb.png")
 
 
 
+
 ---
+
 # Para além do livro texto
 
 ## Livros
+* Jacobs (2011). Morte e vida nas grandes cidades
 * Bertaud (2018). Order without design: How markets shape cities
 * Glaeser e Cutler (2021). The survival of the city
 
@@ -503,7 +562,9 @@ knitr::include_graphics("src/images/njb.png")
   + Perfis sobre urbanismo: @UrbanDemog, @caosplanejado, @rauljustelores, @ChittiMarco, @mnolangray, @SegByDesign e outros 
 
 
+
 ---
+
 # Dúvidas?
 
 .pull-left[.pull-down[
