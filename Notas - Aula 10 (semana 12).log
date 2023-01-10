@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2023.1.5)  9 JAN 2023 00:45
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2023.1.5)  9 JAN 2023 02:57
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -350,8 +350,23 @@ Package: etoolbox 2020/10/05 v2.5k e-TeX tools for LaTeX (JAW)
 File: l3backend-pdftex.def 2022-10-26 L3 backend support: PDF output (pdfTeX)
 \l__color_backend_stack_int=\count292
 \l__pdf_internal_box=\box53
+) (./Notas - Aula 10 (semana 12).aux
+
+LaTeX Warning: Label `fig:density' multiply defined.
+
+
+LaTeX Warning: Label `fig:commuting' multiply defined.
+
+
+LaTeX Warning: Label `fig:bonde' multiply defined.
+
+
+LaTeX Warning: Label `fig:caminhao' multiply defined.
+
+
+LaTeX Warning: Label `fig:energy' multiply defined.
+
 )
-No file "Notas - Aula 10 (semana 12)".aux.
 \openout1 = `"Notas - Aula 10 (semana 12).aux"'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 104.
@@ -486,24 +501,39 @@ File: src/images/caminhao_2.png Graphic file (type png)
 <use src/images/caminhao_2.png>
 Package pdftex.def Info: src/images/caminhao_2.png  used on input line 424.
 (pdftex.def)             Requested size: 379.43971pt x 339.44798pt.
-[6] [7 <./src/images/caminhao_2.png>] [8] [9] (./Notas - Aula 10 (semana 12).aux)
+[6] [7 <./src/images/caminhao_2.png>] [8] [9]
+Underfull \hbox (badness 10000) in paragraph at lines 614--633
 
-LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+ []
+
+<src/images/energydensity.png, id=104, 505.89pt x 572.1375pt>
+File: src/images/energydensity.png Graphic file (type png)
+<use src/images/energydensity.png>
+Package pdftex.def Info: src/images/energydensity.png  used on input line 636.
+(pdftex.def)             Requested size: 505.89645pt x 572.14482pt.
+
+Overfull \hbox (50.65234pt too wide) in paragraph at lines 636--637
+ [][] 
+ []
+
+[10] [11 <./src/images/energydensity.png>] [12] (./Notas - Aula 10 (semana 12).aux)
+
+LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 12503 strings out of 478033
- 199464 string characters out of 5838348
+ 12546 strings out of 478033
+ 200294 string characters out of 5838348
  1861787 words of memory out of 5000000
- 32377 multiletter control sequences out of 15000+600000
- 584093 words of font info for 143 fonts, out of 8000000 for 9000
+ 32398 multiletter control sequences out of 15000+600000
+ 586541 words of font info for 147 fonts, out of 8000000 for 9000
  16 hyphenation exceptions out of 8191
  86i,8n,91p,645b,524s stack positions out of 10000i,1000n,20000p,200000b,200000s
-{c:/Users/arthu/AppData/Roaming/TinyTeX/texmf-dist/fonts/enc/dvips/base/8r.enc}<c:/Users/arthu/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb><c:/Users/arthu/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/urw/symbol/usyr.pfb><c:/Users/arthu/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/urw/times/utmb8a.pfb><c:/Users/arthu/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/urw/times/utmbi8a.pfb><c:/Users/arthu/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/urw/times/utmr8a.pfb><c:/Users/arthu/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/urw/times/utmr8a.pfb><c:/Users/arthu/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on "Notas - Aula 10 (semana 12).pdf" (9 pages, 1048101 bytes).
+{c:/Users/arthu/AppData/Roaming/TinyTeX/texmf-dist/fonts/enc/dvips/base/8r.enc}<c:/Users/arthu/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb><c:/Users/arthu/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb><c:/Users/arthu/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/urw/symbol/usyr.pfb><c:/Users/arthu/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/urw/times/utmb8a.pfb><c:/Users/arthu/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/urw/times/utmbi8a.pfb><c:/Users/arthu/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/urw/times/utmr8a.pfb><c:/Users/arthu/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/urw/times/utmr8a.pfb><c:/Users/arthu/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
+Output written on "Notas - Aula 10 (semana 12).pdf" (12 pages, 1123155 bytes).
 PDF statistics:
- 200 PDF objects out of 1000 (max. 8388607)
- 165 compressed objects within 2 object streams
- 53 named destinations out of 1000 (max. 500000)
- 149 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 255 PDF objects out of 1000 (max. 8388607)
+ 212 compressed objects within 3 object streams
+ 70 named destinations out of 1000 (max. 500000)
+ 178 words of extra memory for PDF output out of 10000 (max. 10000000)
 

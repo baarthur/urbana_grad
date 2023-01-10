@@ -31,9 +31,9 @@ format:
       - '--lua-filter=C:/Users/arthu/OneDrive/Documentos/R/Projects/urbana_grad/src/yaml/author-info-blocks.lua'
     includes:
       in_header: yaml/wrap-code.tex
-      
-nocite: | 
-  @brueckner2011
+
+nocite: |
+  @tumi2018
 ---
 
 ```{r, include=FALSE}
@@ -194,13 +194,47 @@ Como vimos na seção anterior, o desenvolvimento dos meios de transporte incent
 
 
 
-## Causas do espraiamento
+## Lado da demanda
 
-Em primeiro lugar, analisemos os motores do espraiamento no lado da demanda. De acordo com os modelos de economia urbana, a **terra é um bem normal**; ou seja, sua derivada em relação à renda é maior que zero. Na maioria dos países que passam pelo processo de espraiamento nos últimos 60 anos, a **renda média** familiar se elevou bastante: assim, tudo o mais constante, a escolha maximizadora de diversos consumidores foi consumir **propriedades maiores**. Esse processo de enriquecimento se deu, em diversos países (inclusive no Brasil), ao mesmo tempo em que o desenvolvimento dos automóveis e das rodovias tornaram locais distantes mais atrativos. Pensando nos modelos que
+Em primeiro lugar, analisemos os motores do espraiamento no lado da demanda. De acordo com os modelos de economia urbana, a **terra é um bem normal**; ou seja, sua derivada em relação à renda é maior que zero. Na maioria dos países que passam pelo processo de espraiamento nos últimos 60 anos, a **renda média** familiar se elevou bastante: assim, tudo o mais constante, a escolha maximizadora de diversos consumidores foi consumir **propriedades maiores**. Esse processo de enriquecimento se deu, em diversos países (inclusive no Brasil), ao mesmo tempo em que o desenvolvimento dos automóveis e das rodovias tornaram locais distantes mais atrativos. Pensando na teoria do consumidor: a demanda pelo bem habitação aumentou, enquanto um dos determinantes da **restrição orçamentária**, o custo generalizado de transporte, caiu. Com isso, não só a demanda por residências aumentou, como os indivíduos ficaram mais propensos a morar mais longe.
+
+Fatores culturais também influenciam a demanda por habitação: em países como os EUA, as famílias têm forte preferência por casas em relação a apartamentos. Em contraste, no Japão e em diversos países do leste asiático, residências compactas são extremamente comuns, e mesmo quando em outros países, pessoas provenientes dessas culturas tendem a viver em apartamentos [@osullivan2012]. No entanto, é difícil separar o quanto dessas características observadas de fato corresponde a preferências e o quanto é o resultado das restrições locais, sejam elas físicas ou artificais.   
+
+
+
+## Lado da oferta
+
+Do lado da oferta, a resposta é um pouco mais longa. Primeiro, analisemos a resposta geral dos modelos tradicionais de economia urbana: *se a renda aumenta e os custos de transporte caem, então a área da cidade aumenta e a densidade cai*^[Vide modelo AMM, em @brueckner2011]. No entanto, essa resposta está intimamente ligada a duas premissas do modelo: estoque elástico de residências e ausência de legislação sobre o zoneamento.
+
+Em outras palavras, a primeira premissa implica que a cidade pode expandir ou mesmo encolher livremente em resposta às demandas de mercado ---como forças físicas em um mundo sem atrito. Essa premissa não é muito razoável: ainda que tecnicamente viável, os custos envolvidos em demolir o estoque habitacional existente (seja para construir mais alto, ou para encolher a cidade) podem ser altos demais para que a transação não ocorra. Na prática, significa que **mudanças na demanda** não são perfeita e imediatamente atendidas pelo mercado; pelo contrário, há **fricções** que são maiores quanto mais restrições ao processo construtivo existirem.
+
+Nesse sentido, a segunda premissa (ausência de zoneamento) também é bastante pertinente. Os modelos apontam a **tendência** do equilíbrio espacial em função da interação entre as forças de mercado, na **ausência** de fatores externos como o **zoneamento**. Esse raramente é o caso na vida real: a cidade de Nova York adotou seu primeiro código de zoneamento em 1913 e, logo após, foi seguido por diversas cidade. Hoje, Houston é a única cidade grande dos Estados Unidos a não ter uma legislação específica; no entanto, os proprietários se submetem a diversos acordos mútuos^[Uma aproximação da solução proposta pelo Teorema de Coase!]. No Brasil, já havia um código de construção legislando a fachada das residências desde a época do império [@delpriore2016]. Na atualidade, o Estatudo da Cidade determina que toda cidade com mais de 50 mil habitantes tenha seu plano diretor [@brasil2001]. 
+
+
+### O impacto do zoneamento
+
+Restrições ao adensamento geralmente são propostas como forma de conter externalidades negativas da urbanização, como ilhas de calor e o congestionamento. No entanto, é importante compreender também o impacto dessas medidas no equilíbrio espacial urbano; assim, podemos avaliar melhor os custos e benefícios dessas medidas. O principal mecanismo é a restrição direta das atividades que podem ser exercidas em cada local, como as **zonas exclusivamente residenciais** (ZERs). Essa ferramenta é bastante comum sobretudo nos EUA, onde as comunidades locais costumam se opor fortemente ao adensamento e ao desenvolvimento do comércio e pressionam os legisladores a manter um zoneamento restritivo nos bairros tipicamente residenciais. 
+
+Limitações ao **coeficiente de aproveitamento** (área construída $\div$ área do terreno), imposições de recuos e áreas mínimas para lotes são outras ferramentas que impactam o equilíbrio espacial urbano, pois restringem direta (no caso do CA) ou indiretamente as possibilidades de adensamento. Assim, se há vantagem locacional para adensar uma localização, mas a legislação não o permite (ou o dificulta), o excedente de demanda será atendido aumentando a área antropizada; ou seja, **espraiamento**.
 
 
 
 ## Consequências do espraiamento
+
+Para avaliar o impacto da legislação sobre a estrutura espacial, @bertaud2017 usou perfis de densidade, gradientes de densidade e índices de dispersão para comparar a estrutura de cidades moldadas (aproximadamente) por forças de mercado contra aquela de Brasília, Joanesburgo e Moscou ---cidades cujo planejamento o autor definiu como utópico^["Doutrina imposta por um governo, seja local ou central, e que anseia em alcançar um estado futuro de equilíbrio permanente"]--- e Curitiba e Portland (exemplos intermediários). O urbanista identificou que as legislações que moldaram as três cidades em análise impõem um elevado custo social na sua população. O **gradiente** de densidade é **invertido** e a população é dispersa. impondo assim um alto custo operacional por meio de redes maiores (vias, esgotos, comunicação etc) e maior uso energético, o que também aumenta a poluição. O diagrama de dispersão abaixo ilustra essa consequência: quanto **menos densa** uma cidade, **mais energia** cada habitante gasta em média com deslocamentos. É interessante também observar o contraste entre os diferentes continentes: a América do Norte e a Oceania têm os maiores gastos energéticos e as menores densidades, enquanto a Ásia concentra os exemplos opostos.  
+```{r energy, fig.cap="\\label{fig:energy} Relação entre densidade demográfica e consumo energético para transporte. Fonte: Tumi (2018)"}
+include_graphics(here("src/images/energydensity.png"))
+```
+
+
+### Externalidades não internalizadas
+
+
+
+
+
+
+
 
 
 # Referências
