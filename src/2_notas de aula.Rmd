@@ -27,8 +27,8 @@ format:
     highlight: pygments
     fig_caption: yes
     pandoc_args: 
-      - '--lua-filter=C:/Users/arthu/OneDrive/Documentos/R/Projects/urbana_grad/src/yaml/scholarly-metadata.lua'
-      - '--lua-filter=C:/Users/arthu/OneDrive/Documentos/R/Projects/urbana_grad/src/yaml/author-info-blocks.lua'
+      - '--lua-filter=Macintosh HD/Usuários/andreaviernobazolli/urbana_grad/src/yaml/scholarly-metadata.lua'
+      - '--lua-filter=Macintosh HD/Usuários/andreaviernobazolli/urbana_grad/src/yaml/author-info-blocks.lua'
     includes:
       in_header: yaml/wrap-code.tex
 
@@ -36,7 +36,7 @@ nocite: |
   @tumi2018
 ---
 
-```{r, include=FALSE}
+```{r setup, include=FALSE}
 library(knitr)
 library(here)
 
@@ -211,28 +211,62 @@ Em outras palavras, a primeira premissa implica que a cidade pode expandir ou me
 Nesse sentido, a segunda premissa (ausência de zoneamento) também é bastante pertinente. Os modelos apontam a **tendência** do equilíbrio espacial em função da interação entre as forças de mercado, na **ausência** de fatores externos como o **zoneamento**. Esse raramente é o caso na vida real: a cidade de Nova York adotou seu primeiro código de zoneamento em 1913 e, logo após, foi seguido por diversas cidade. Hoje, Houston é a única cidade grande dos Estados Unidos a não ter uma legislação específica; no entanto, os proprietários se submetem a diversos acordos mútuos^[Uma aproximação da solução proposta pelo Teorema de Coase!]. No Brasil, já havia um código de construção legislando a fachada das residências desde a época do império [@delpriore2016]. Na atualidade, o Estatudo da Cidade determina que toda cidade com mais de 50 mil habitantes tenha seu plano diretor [@brasil2001]. 
 
 
-### O impacto do zoneamento
+### Zoneamento
 
 Restrições ao adensamento geralmente são propostas como forma de conter externalidades negativas da urbanização, como ilhas de calor e o congestionamento. No entanto, é importante compreender também o impacto dessas medidas no equilíbrio espacial urbano; assim, podemos avaliar melhor os custos e benefícios dessas medidas. O principal mecanismo é a restrição direta das atividades que podem ser exercidas em cada local, como as **zonas exclusivamente residenciais** (ZERs). Essa ferramenta é bastante comum sobretudo nos EUA, onde as comunidades locais costumam se opor fortemente ao adensamento e ao desenvolvimento do comércio e pressionam os legisladores a manter um zoneamento restritivo nos bairros tipicamente residenciais. 
 
 Limitações ao **coeficiente de aproveitamento** (área construída $\div$ área do terreno), imposições de recuos e áreas mínimas para lotes são outras ferramentas que impactam o equilíbrio espacial urbano, pois restringem direta (no caso do CA) ou indiretamente as possibilidades de adensamento. Assim, se há vantagem locacional para adensar uma localização, mas a legislação não o permite (ou o dificulta), o excedente de demanda será atendido aumentando a área antropizada; ou seja, **espraiamento**.
 
 
+### Infraestrutura e políticas públicas
+
+Além das legislações sobre uso do solo, a provisão de **infraestrutura** e outras políticas públicas tem um impacto no lado da oferta que pode resultar em um equilíbrio espacial mais espraiado. Estados que priorizam investimentos no transporte individual, como construção de grandes **vias expressas e viadutos**, tendem a incentivar o **espraiamento**, na medida em que aumentam a acessibilidade do automóvel relativa ao transporte público. É o caso de países como os EUA, o Canadá e a Austrália. Por outro lado, políticas de investimento em **transporte coletivo** tendem a tornar os locais próximos ao transporte público mais atrativos. Quando combinados com políticas favoráveis ao adensamento, o resultado tende a ser uma estrutura espacial relativamente **mais compacta** (menos espraiada). Essa combinação, conhecida como **TOD** ---*transit-oriented development* (desenvolvimento orientado para o transporte [coletivo])---, é bastante usada em países da Ásia há ao menos 30 anos e, recentemente, tem ganhado destaque nas américas [@suzuki2015].
+
+Outra situação recorrente é a **ausência de políticas** para as **externalidades** do automóvel e do espraiamento. Por exemplo, os carros provocam congestionamentos nas áreas centrais das cidades, gerando uma externalidade de poluição (sonora e do ar) e de custo de oportunidade (pois um carro a mais aumenta o tempo de deslocamento dos demais). Assim, uma política de **pedágio urbano**, como as implementadas em Londres e Singapura, é uma forma de internalizar esse custo aos proprietários dos veículos. Quando presentes, essas medidas podem reduzir o espraiamento ao gerar um incentivo para moradias mais próximas do centro ou do transporte coletivo, pois o **custo relativo** do transporte individual aumenta. Outro exemplo são os **novos loteamentos**: estes exigem a instalação de nova infraestrutura urbana ---vias, redes de esgoto, cabeamento--- que pode ser tanto bancada por um incorporador imobiliário, quanto pelo governo. No segundo caso, a sociedade arca com o custo de prover infraestrutura a uma pequena parcela da população, o que acaba por incentivar o espraiamento ao reduzir o preço desses novos loteamentos ao seu consumidor final. 
+
+
 
 ## Consequências do espraiamento
 
 Para avaliar o impacto da legislação sobre a estrutura espacial, @bertaud2017 usou perfis de densidade, gradientes de densidade e índices de dispersão para comparar a estrutura de cidades moldadas (aproximadamente) por forças de mercado contra aquela de Brasília, Joanesburgo e Moscou ---cidades cujo planejamento o autor definiu como utópico^["Doutrina imposta por um governo, seja local ou central, e que anseia em alcançar um estado futuro de equilíbrio permanente"]--- e Curitiba e Portland (exemplos intermediários). O urbanista identificou que as legislações que moldaram as três cidades em análise impõem um elevado custo social na sua população. O **gradiente** de densidade é **invertido** e a população é dispersa. impondo assim um alto custo operacional por meio de redes maiores (vias, esgotos, comunicação etc) e maior uso energético, o que também aumenta a poluição. O diagrama de dispersão abaixo ilustra essa consequência: quanto **menos densa** uma cidade, **mais energia** cada habitante gasta em média com deslocamentos. É interessante também observar o contraste entre os diferentes continentes: a América do Norte e a Oceania têm os maiores gastos energéticos e as menores densidades, enquanto a Ásia concentra os exemplos opostos.  
-```{r energy, fig.cap="\\label{fig:energy} Relação entre densidade demográfica e consumo energético para transporte. Fonte: Tumi (2018)"}
+```{r energy, out.width="12cm", fig.cap="\\label{fig:energy} Relação entre densidade demográfica e consumo energético para transporte. Fonte: Tumi (2018)"}
 include_graphics(here("src/images/energydensity.png"))
 ```
 
 
-### Externalidades não internalizadas
+### Planejamento da rede de transporte
+
+Ainda relacionado ao tópico anterior, o espraiamento aumenta as dificuldades de planejamento da rede de transporte. Quando a população encontra-se **concentrada** em uma pequena área, um número menor de **rotas** são necessárias para atender a esses deslocamentos de forma satisfatória; por exemplo, com uma estação de metrô ou um ponto de ônibus a uma curta distância de cada residência. Por outro lado, quanto maior a **dispersão** da população no espaço, **mais rotas** são necessárias para cobrir a população; do contrário, a distância porta-a-porta é grande demais e o transporte coletivo perde atratividade. Mas além do custo de atender uma região maior, há o problema fundamental da demanda: há menos pessoas por cada região, o que torna várias linhas bastante **deficitárias** pela ausência de **demanda crítica**. Com raras exceções, o transporte público depende de subsídios. No entanto, quanto maior o espraiamento, mais deficitário ele tende a ser, pois é necessário oferecer mais linhas para cobrir uma área maior e atender um número igual ou menor de usuários.
+
+Um exemplo disso é a comparação feita por @bertaud2004 entre Atlanta (Geórgia, EUA) e Barcelona (Catalunha, Espanha). Partindo dos dados de 1990, ambas cidades tinham população semelhante; no entanto, a americana é um clássico exemplo de cidade espraiada e a europeia é bastante compacta. Enquanto a mancha urbana de Atlanta se estendia por 4,3 mil $km^2$, a de Barcelona ocupava 162 $km^2$ no mesmo período, cerca de **25 vezes** menor.
+
+```{r atlbcn, out.width="12cm", fig.cap="\\label{fig:atlbcn} Áreas urbanas de Atlanta e Barcelona comparadas. Fonte: Bertaud (2004)"}
+include_graphics(here("src/images/atlbcn.png"))
+```
+
+Comparando o transporte público nas duas cidades: enquanto a rede do metrô de Barcelona alcançava então 99km, a de Atlanta não ficava muito atrás, com 74km. Porém, 60% dos habitantes da cidade catalunha residiam a 600 metros de uma das estações, enquanto apenas 4% dos moradores da capital da Geórgia moravam a 800 metros de uma estação. Com uma densidade 28 vezes menor, **Atlanta precisaria construir 3,4 mil quilômetros de trilhos e 2,4 mil estações** para alcançar a movimentação que Barcelona atingia então com seus 99 quilômetros. Embora o espraiamento não seja o único fator por trás do relativamente baixo desempenho do metrô de Atlanta, ele certamente é uma razão importante, pois a pulverização da população e das oportunidades de trabalho (i) diminui o potencial de acessibilidade da rede e (ii) torna muito mais caro construir uma rede que efetivamente cubra a área da cidade (economia de escala).
 
 
 
 
+# Resumo
 
+Nessa parte da matéria, vimos que:
+
+1. A estrutura espacial urbana seguiu tendências diferentes ao longo do tempo
+2. Essas tendências são ditadas, principalmente, por:
+  + Comportamento racional $\rightarrow$ localização ótima
+  + Economias de aglomeração
+  + Evolução dos transportes
+  + Métodos de construção
+  + Necessidade de contato físico
+  + Fluxo de informações (informática)
+  + Leis de uso e ocupação do solo
+3. Até a revolução industrial, a ausência de transporte motorizado limitava bastante o tamanho das cidades e os métodos construtivos não permitiam a verticalização. Com isso, não só as cidades eram menores, como as economias de aglomeração eram **limitadas**.
+4. A partir do século XIX, inovações como a ferrovia e o elevador permitiram às cidades crescer para os lados e para cima: foi a era de ouro da cidade **monocêntrica**.
+5. Com o advento do automóvel e do caminhão, as cidades começaram a caminhar para uma estrutura **policêntrica**, sobretudo após a II Guerra Mundial. A informática também contribuiu para isso, ao reduzir a necessidade do contato físico para a troca de informações.
+6. O aumento da renda média incentivou o consumo de terrenos maiores, disponíveis fora do centro. O carro acelerou esse processo, pois aumentou a acessibilidade relativa desses locais. Combinado com políticas públicas de incentivo ao uso do automóvel e um zoneamento restritivo, o resultado foi um **espraiamento** da mancha urbana em diversas cidades, sobretudo no ocidente.
+7. Tanto as cidades densas, quanto as espraiadas, têm as suas amenidades e externalidades negativas. Assim, é importante que os formuladores de políticas públicas entendam as implicações da estrutura espacial urbana no bem-estar dos indivíduos e, de uma forma mais ampola, na eficiência do mercado de trabalho e do setor produtivo (via economias de aglomeração e acessibilidade). 
 
 
 
